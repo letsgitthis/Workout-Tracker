@@ -10,6 +10,12 @@ const db = require("./models");
 // create routes using express
 const app = express();
 
+// not sure what to put here yet
+app.use(logger(""));
+
+app.use(express.json());
+app.use(express.static("public"));
+
 // mongoose handles the schema 
 
 // mongo is the db (database)
