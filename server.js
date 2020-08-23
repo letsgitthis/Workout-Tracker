@@ -16,6 +16,19 @@ app.use(logger(""));
 app.use(express.json());
 app.use(express.static("public"));
 
+// routed pages
+app.get("/", (req, res) => {
+    res.sendFile(path.join(_dirname, "./public/index.html"));
+});
+
+app.get("/exercise", (req, res) => {
+    res.sendFile(path.join(_dirname, "./public/exercise.html"));
+});
+
+app.get("/stats", (req, res) => {
+    res.sendFile(path.join(_dirname, "./public/stats.html"));
+});
+
 // mongoose handles the schema 
 
 // mongo is the db (database)
