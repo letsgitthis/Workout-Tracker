@@ -11,7 +11,9 @@ const db = require("./models");
 const app = express();
 
 // not sure what to put here yet
-app.use(logger(""));
+app.use(logger("dev"));
+
+app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
 app.use(express.static("public"));
@@ -30,6 +32,9 @@ app.get("/stats", (req, res) => {
 });
 
 // mongoose handles the schema 
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout",{
+    useNewUrlParser: true
+});
 
 // mongo is the db (database)
 //===========================
